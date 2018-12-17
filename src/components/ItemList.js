@@ -12,29 +12,43 @@ class ItemList extends Component {
     // declaring the state
     this.state = {
       items: [{
-          id: uuidv4(),
-          item: "Write my code"
-        },
-        {
-          id: uuidv4(),
-          item: "Compile the code"
-        },
-        {
-          id: uuidv4(),
-          item: "debug it"
-        },
-        {
-          id: uuidv4(),
-          item: "deploy in the server"
-        },
-        {
-          id: uuidv4(),
-          item: "Put in Github"
-        },
+        id: uuidv4(),
+        item: "Write my code"
+      },
+      {
+        id: uuidv4(),
+        item: "Compile the code"
+      },
+      {
+        id: uuidv4(),
+        item: "debug it"
+      },
+      {
+        id: uuidv4(),
+        item: "deploy in the server"
+      },
+      {
+        id: uuidv4(),
+        item: "Put in Github"
+      },
       ],
 
       value: ''
     }
+  }
+
+  componentDidMount() {
+    this.scrollToBottom()
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom()
+  }
+
+  // always scroll to the bottom
+  scrollToBottom() {
+    // console.log('refs', this.refs.lastItem)
+    this.lastItem.scrollIntoView({ behavior: "smooth" })
   }
 
   // delete the item from the list of items
@@ -90,16 +104,17 @@ class ItemList extends Component {
 
     return (
       <div className="show-add-items">
-        <AddItem addItemValue={this.state.value} 
-        handleUpdateInput={this.handleUpdateInput.bind(this)}
-        handleEnterEvent={this.handleEnterEvent.bind(this)}/>
+        <AddItem addItemValue={this.state.value}
+          handleUpdateInput={this.handleUpdateInput.bind(this)}
+          handleEnterEvent={this.handleEnterEvent.bind(this)} />
 
         <div className="list-items">
-        {
-          this.state.items.map((ele) => {
-          return <TodoItem key={ele.id} {...ele} handler={this.handleDelete.bind(this, ele.id)}/>
-          })
-        }
+          {
+            this.state.items.map((ele) => {
+              return <TodoItem key={ele.id} {...ele} handler={this.handleDelete.bind(this, ele.id)} />
+            })
+          }
+          <div ref={(ele) => { this.lastItem = ele; }}></div>
         </div>
       </div>
     );

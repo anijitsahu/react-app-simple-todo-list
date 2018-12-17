@@ -56,12 +56,14 @@ html {
 }
 
 .card {
-  -webkit-box-shadow: 4px 2px 1px -1px rgba(0, 0, 0, 0.1);
-  box-shadow: 4px 2px 1px -1px rgba(0, 0, 0, 0.1);
   padding: 1em;
   position: relative;
-  border: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   margin-bottom: 3px;
+}
+
+.card:hover{
+  background-color: #f0f0f0;
 }
 
 .close-icon {
@@ -88,7 +90,6 @@ html {
 
 }
 
-.md-input-box:hover,
 .md-input-box:focus {
   border-bottom: solid 2px #ab14ab;
 }
@@ -120,6 +121,7 @@ html {
 /* Add Items related */
 .add-items {
   grid-row: 1;
+  height: 50px;
 }
 
 /* List Items related */
@@ -157,4 +159,15 @@ input[type=text] {
   .md-input-box {
     font-size: 10px;
   }
+}
+
+/* scrollbar enhancement using css */
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#ddd; 
+  border-radius: 10px;
 }
