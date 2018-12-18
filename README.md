@@ -1,20 +1,36 @@
 # react-app-simple-todo-list
 
-A simple Todo List Application using `React JS`, a JavaScript library to make awesome UI by Facebook.
+A simple as well as basic Todo List Application using React JS, a JavaScript library to make awesome UI by Facebook.
 
-This page is only an demonstration of an Dashboard page UI. For that reason it is a static page.
+This application uses React JS component oriented UI creation paradigm. All components are written in JSX and ES6 style and are
+combined using Webpack 4. Babel is used to *transpile* all JSX code to vanilla JavaScript code. States and Props are used to pass data within components. To install all the dependecies `npm` is used.
+
+For UI creation HTML5 and CSS3 are used. `Grid`, the new feature of CSS3 is used for layout creation purpose.
+
+This is a *responsive web application* for viewing in both Mobile and Desktop.
+
+
+## Features
+- The app is loaded with some predefined todo items.
+- Type an item in the input box and press `ENTER` key to add it in the todo list
+- Deletion of an item is done by clicking the `X` icon
+- As the application is not backed by any database / storage all the items created or deleted is not persistant
+
+
 
 ## Installation
 
-1. Clone the repository using `git clone https://github.com/anijitsahu/dashboard-page.git` from Git Bash / Command Prompt
-2. Navigate inside the directory `react-app-simple-todo-list`
-3. Install all the necessary dependecies by using `npm install`
+1. Clone the repository using `git clone https://github.com/anijitsahu/dashboard-page.git` from `Git Bash / Command Prompt`
+2. Navigate inside the directory by `cd react-app-simple-todo-list`
+3. Install all the necessary dependecies by using `npm install` (optional)
 4. Navigate to the directory `dist`
-5. Open `index.html` page and create / delete your To do items
+5. Open `index.html` page in a web browser and create / delete your To do items
  
 *tested with <img src="screenshots/chrome.png" width="20px" title="Google Chrome">Google Chrome v70 and <img src="screenshots/firefox.png" width="25px" title="Firefox Developer edition">Mozilla Firefox Developer Editon*  
 
 ## Screenshots
+
+Some screens of the application is given below for better understanting
 <img src="screenshots/Screenshot.png" width="500px" title="Dashboard page">
 
 
