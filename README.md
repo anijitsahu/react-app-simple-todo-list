@@ -32,21 +32,29 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 Some screens of the application is given below for better understanding
 
-<p>
- <img src="screenshots/desktop 1.png" width="300px"/>
- <img src="screenshots/mobile 1.png" width="100px"/> <br/>
+<p> Initial screen <br/>
+ <img src="screenshots/desktop 1.png" width="400px" title="initial screen"/>
+ <img src="screenshots/mobile 1.png" width="200px" title="initial screen"/> 
+</p>
  
- <img src="screenshots/desktop 2.png" width="300px"/>
- <img src="screenshots/mobile 2.png" width="100px"/>
+ <p> Entering an item <br/>
+ <img src="screenshots/desktop 2.png" width="400px" title="entering an item screen"/>
+ <img src="screenshots/mobile 2.png" width="200px" title="entering an item screen"/>
+ </p>
  
- <img src="screenshots/desktop 3.png" width="300px"/>
- <img src="screenshots/mobile 3.png" width="100px"/>
+ <p> Adding the item in to do list <br/>
+ <img src="screenshots/desktop 3.png" width="400px" title="adding an item screen"/>
+ <img src="screenshots/mobile 3.png" width="200px" title="adding an item screen"/>
+ </p>
  
- <img src="screenshots/desktop 4.png" width="300px"/>
- <img src="screenshots/mobile 4.png" width="100px"/>
+ <p> Delete an item from the list <br/>
+ <img src="screenshots/desktop 4.png" width="400px" title="deleting an item screen"/>
+ <img src="screenshots/mobile 4.png" width="200px" title="deleting an item screen"/>
+ </p>
  
- <img src="screenshots/desktop 5.png" width="300px"/>
- <img src="screenshots/mobile 5.png" width="100px"/>
+ <p> After deletion <br/>
+ <img src="screenshots/desktop 5.png" width="300px" title="after deletion screen"/>
+ <img src="screenshots/mobile 5.png" width="100px" title="after deletion screen"/>
  </p>
 
 
