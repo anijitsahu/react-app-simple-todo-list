@@ -32,8 +32,8 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 Some screens of the application is given below for better understanding
 
-<p> Initial screen <br/> <br/>
- <img src="screenshots/desktop 1.png" width="400px" title="initial screen"/>
+<p> Initial screen <br/> 
+ <img src="screenshots/desktop 1.png" width="450px" title="initial screen"/>
  <img src="screenshots/mobile 1.png" width="150px" title="initial screen"/> 
 </p>
  
@@ -42,7 +42,7 @@ Some screens of the application is given below for better understanding
  <img src="screenshots/mobile 2.png" width="150px" title="entering an item screen"/>
  </p>
  
- <p> Adding the item in to do list <br/> <br/>
+ <p> Adding the item in to do list <br/> 
  <img src="screenshots/desktop 3.png" width="400px" title="adding an item screen"/>
  <img src="screenshots/mobile 3.png" width="150px" title="adding an item screen"/>
  </p>
