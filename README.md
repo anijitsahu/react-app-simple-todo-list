@@ -34,7 +34,7 @@ Some screens of the application is given below for better understanding
 
 <p>
  <img src="screenshots/desktop 1.png" width="300px"/>
- <img src="screenshots/mobile 1.png" width="100px"/>
+ <img src="screenshots/mobile 1.png" width="100px"/> <br/>
  
  <img src="screenshots/desktop 2.png" width="300px"/>
  <img src="screenshots/mobile 2.png" width="100px"/>
