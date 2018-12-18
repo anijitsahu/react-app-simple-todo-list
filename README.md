@@ -33,7 +33,7 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 Some screens of the application is given below for better understanding
 
 <p> Initial screen <br/> 
- <img src="screenshots/desktop 1.png" width="450px" title="initial screen"/>
+ <img src="screenshots/desktop 1.png" width="490px" title="initial screen"/>
  <img src="screenshots/mobile 1.png" width="150px" title="initial screen"/> 
 </p>
  
