@@ -30,7 +30,23 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 ## Screenshots
 
-Some screens of the application is given below for better understanting
-<img src="screenshots/Screenshot.png" width="500px" title="Dashboard page">
+Some screens of the application is given below for better understanding
+
+<p>
+ <img src="screenshots/desktop 1.png" width="300px"/>
+ <img src="screenshots/mobile 1.png" width="100px"/>
+ 
+ <img src="screenshots/desktop 2.png" width="300px"/>
+ <img src="screenshots/mobile 2.png" width="100px"/>
+ 
+ <img src="screenshots/desktop 3.png" width="300px"/>
+ <img src="screenshots/mobile 3.png" width="100px"/>
+ 
+ <img src="screenshots/desktop 4.png" width="300px"/>
+ <img src="screenshots/mobile 4.png" width="100px"/>
+ 
+ <img src="screenshots/desktop 5.png" width="300px"/>
+ <img src="screenshots/mobile 5.png" width="100px"/>
+ </p>
 
 
