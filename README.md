@@ -30,7 +30,9 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 ## Screenshots
 
-Some screens of the application is given below for better understanding
+Some screens of the application is given below for better understanding. 
+
+Desktop as well as Mobile version of the screenshots are given side by side
 
 <p> Initial screen <br/> 
  <img src="screenshots/desktop 1.png" width="590px" title="initial screen"/>
