@@ -1,9 +1,11 @@
 # react-app-simple-todo-list
 
-A simple as well as basic Todo List Application using React JS, a JavaScript library to make awesome UI by Facebook.
+A simple as well as basic Todo List Application using [React JS](https://reactjs.org/docs/getting-started.html), a JavaScript library to make awesome UI by Facebook.
 
-This application uses React JS component oriented UI creation paradigm. All components are written in JSX and ES6 style and are
-combined using Webpack 4. Babel is used to *transpile* all JSX code to vanilla JavaScript code. States and Props are used to pass data within components. To install all the dependecies `npm` is used.
+This application uses [React JS](https://reactjs.org/docs/getting-started.html) component oriented UI creation paradigm. All components are written in [JSX](https://reactjs.org/docs/jsx-in-depth.html) and ES6 style and are
+combined using [Webpack 4](https://webpack.js.org/concepts/). 
+
+[Babel](https://babeljs.io/docs/en/babel-preset-react) is used to *transpile* all [JSX](https://reactjs.org/docs/jsx-in-depth.html) code to vanilla JavaScript code. States and Props are used to pass data within components. To install all the dependecies `npm` is used.
 
 For UI creation HTML5 and CSS3 are used. `Grid`, the new feature of CSS3 is used for layout creation purpose.
 
