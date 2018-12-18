@@ -20,7 +20,7 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 ## Installation
 
-1. Clone the repository using `git clone https://github.com/anijitsahu/dashboard-page.git` from `Git Bash / Command Prompt`
+1. Clone the repository using `git clone https://github.com/anijitsahu/react-app-simple-todo-list.git` from `Git Bash / Command Prompt`
 2. Navigate inside the directory by `cd react-app-simple-todo-list`
 3. Install all the necessary dependecies by using `npm install` (optional)
 4. Navigate to the directory `dist`
