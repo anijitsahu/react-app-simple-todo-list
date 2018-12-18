@@ -34,7 +34,7 @@ Some screens of the application is given below for better understanding
 
 <p> Initial screen <br/> 
  <img src="screenshots/desktop 1.png" width="590px" title="initial screen"/>
- <img src="screenshots/mobile 1.png" width="290px" title="initial screen"/> 
+ <img src="screenshots/mobile 1.png" width="250px" title="initial screen"/> 
 </p>
  
  <p> Entering an item <br/>
