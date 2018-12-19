@@ -1,5 +1,5 @@
 {
-  "name": "todo",
+  "name": "react-app-simple-todo-list",
   "version": "1.0.0",
   "description": "This is a To do List Application",
   "main": "index.js",
