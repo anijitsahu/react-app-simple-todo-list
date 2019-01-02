@@ -1,6 +1,6 @@
 # react-app-simple-todo-list
 
-A simple as well as basic Todo List Application using [React JS](https://reactjs.org/docs/getting-started.html), a JavaScript library to make awesome UI by Facebook.
+A simple as well as basic Todo List Application using [React JS](https://reactjs.org/docs/getting-started.html), a JavaScript library to make awesome UI by Facebook. 
 
 This application uses [React JS](https://reactjs.org/docs/getting-started.html) component oriented UI creation paradigm. All components are written in [JSX](https://reactjs.org/docs/jsx-in-depth.html) and ES6 style and are
 combined using [Webpack 4](https://webpack.js.org/concepts/). 
