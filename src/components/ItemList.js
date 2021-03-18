@@ -1,124 +1,107 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
 // components
 import TodoItem from './TodoItem'
 import AddItem from './AddItem'
 
-class ItemList extends Component {
+const ItemList = () => {
 
-  constructor(props) {
-    super(props);
-    // declaring the state
-    this.state = {
-      items: [{
-        id: uuidv4(),
-        item: "Write my code"
-      },
-      {
-        id: uuidv4(),
-        item: "Compile the code"
-      },
-      {
-        id: uuidv4(),
-        item: "debug it"
-      },
-      {
-        id: uuidv4(),
-        item: "deploy in the server"
-      },
-      {
-        id: uuidv4(),
-        item: "Put in Github"
-      },
-      ],
-
-      value: ''
-    }
+  // declaring the state
+  const todoItemList = {
+    items: [{
+      id: uuidv4(),
+      item: "Write my code"
+    },
+    {
+      id: uuidv4(),
+      item: "Compile the code"
+    },
+    {
+      id: uuidv4(),
+      item: "debug it"
+    },
+    {
+      id: uuidv4(),
+      item: "deploy in the server"
+    },
+    {
+      id: uuidv4(),
+      item: "Put in Github"
+    }],
+    value: ''
   }
 
-  componentDidMount() {
-    this.scrollToBottom()
-  }
-
-  componentDidUpdate() {
-    this.scrollToBottom()
-  }
+  // setting the initial list of TODO items
+  const [todoItems, setTodoItems] = useState(todoItemList)
+  // useEffect(() => {
+  //   // scrollToBottom()
+  // })
 
   // always scroll to the bottom
-  scrollToBottom() {
-    // console.log('refs', this.refs.lastItem)
-    this.lastItem.scrollIntoView({ behavior: "smooth" })
+  const scrollToBottom = () => {
+    // lastItem.scrollIntoView({ behavior: "smooth" })
+    console.log('reached')
   }
 
   // delete the item from the list of items
-  handleDelete(id) {
-
-    let newState = [...this.state.items]
+  const handleDelete = (id) => {
+    let newTodoItems = [...todoItems.items]
 
     // find and delete the item whose X button is clicked
-    for (let i = 0; i < newState.length; i++) {
-      if (newState[i].id == id) {
-        newState.splice(i, 1)
+    for (let i = 0; i < newTodoItems.length; i++) {
+      if (newTodoItems[i].id == id) {
+        newTodoItems.splice(i, 1)
         break;
       }
     }
 
-
-    this.setState((prevState, props) => ({
-      items: newState
+    setTodoItems((prevState, props) => ({
+      items: newTodoItems
     }))
   }
 
   // insert an item into the list
-  handleInsert() {
-    let newState = [...this.state.items]
-    newState.push({ id: uuidv4(), item: this.state.value })
+  const handleInsert = () => {
+    let newTodoItems = [...todoItems.items]
+    newTodoItems.push({ id: uuidv4(), item: todoItems.value })
 
-    this.setState((prevState, props) => ({
-      items: newState,
+    setTodoItems((prevState, props) => ({
+      items: newTodoItems,
       value: ''
     }))
   }
 
   // update the value of the state when input box changes
-  handleUpdateInput(event) {
-    event.persist()
-
-    this.setState((prevState, props) => ({
-      value: event.target.value
+  const handleUpdateInput = () => {
+    setTodoItems((prevState, props) => ({
+      value: target.value
     }))
-
   }
 
-  // capture the ENTER key event
-  handleEnterEvent(event) {
-    event.persist()
+  // capture the ENTER key 
+  const handleEnterEvent = () => {
     // if ENTER key is pressed push it to the Array
-    if ((event.keyCode == 13 || event.which == 13) && this.state.value != '') {
-      this.handleInsert()
+    if ((keyCode == 13 || which == 13) && todoItems.value != '') {
+      handleInsert()
     }
   }
 
-  render() {
-
-    return (
-      <div className="show-add-items">
-        <AddItem addItemValue={this.state.value}
-          handleUpdateInput={this.handleUpdateInput.bind(this)}
-          handleEnterEvent={this.handleEnterEvent.bind(this)} />
-
-        <div className="list-items">
-          {
-            this.state.items.map((ele) => {
-              return <TodoItem key={ele.id} {...ele} handler={this.handleDelete.bind(this, ele.id)} />
-            })
-          }
-          <div ref={(ele) => { this.lastItem = ele; }}></div>
-        </div>
+  return (
+    <div className="show-add-items">
+      <AddItem addItemValue={todoItems.value}
+        handleUpdateInput={handleUpdateInput}
+        handleEnterEvent={handleEnterEvent} />
+      <div className="list-items">
+        {
+          todoItems.items.map((ele) => {
+            return <TodoItem key={ele.id} {...ele} />
+          })
+        }
+        {/* <div ref={(ele) => { lastItem = ele; }}></div> */}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default ItemList;

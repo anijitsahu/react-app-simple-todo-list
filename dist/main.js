@@ -94,116 +94,98 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-class ItemList extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
-  constructor(props) {
-    super(props); // declaring the state
+const ItemList = () => {
+  // declaring the state
+  const todoItemList = {
+    items: [{
+      id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
+      item: "Write my code"
+    }, {
+      id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
+      item: "Compile the code"
+    }, {
+      id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
+      item: "debug it"
+    }, {
+      id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
+      item: "deploy in the server"
+    }, {
+      id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
+      item: "Put in Github"
+    }],
+    value: ''
+  }; // setting the initial list of TODO items
 
-    this.state = {
-      items: [{
-        id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
-        item: "Write my code"
-      }, {
-        id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
-        item: "Compile the code"
-      }, {
-        id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
-        item: "debug it"
-      }, {
-        id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
-        item: "deploy in the server"
-      }, {
-        id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
-        item: "Put in Github"
-      }],
-      value: ''
-    };
-  }
+  const [todoItems, setTodoItems] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(todoItemList); // useEffect(() => {
+  //   // scrollToBottom()
+  // })
+  // always scroll to the bottom
 
-  componentDidMount() {
-    this.scrollToBottom();
-  }
-
-  componentDidUpdate() {
-    this.scrollToBottom();
-  } // always scroll to the bottom
-
-
-  scrollToBottom() {
-    // console.log('refs', this.refs.lastItem)
-    this.lastItem.scrollIntoView({
-      behavior: "smooth"
-    });
-  } // delete the item from the list of items
+  const scrollToBottom = () => {
+    // lastItem.scrollIntoView({ behavior: "smooth" })
+    console.log('reached');
+  }; // delete the item from the list of items
 
 
-  handleDelete(id) {
-    let newState = [...this.state.items]; // find and delete the item whose X button is clicked
+  const handleDelete = id => {
+    let newTodoItems = [...todoItems.items]; // find and delete the item whose X button is clicked
 
-    for (let i = 0; i < newState.length; i++) {
-      if (newState[i].id == id) {
-        newState.splice(i, 1);
+    for (let i = 0; i < newTodoItems.length; i++) {
+      if (newTodoItems[i].id == id) {
+        newTodoItems.splice(i, 1);
         break;
       }
     }
 
-    this.setState((prevState, props) => ({
-      items: newState
+    setTodoItems((prevState, props) => ({
+      items: newTodoItems
     }));
-  } // insert an item into the list
+  }; // insert an item into the list
 
 
-  handleInsert() {
-    let newState = [...this.state.items];
-    newState.push({
+  const handleInsert = () => {
+    let newTodoItems = [...todoItems.items];
+    newTodoItems.push({
       id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
-      item: this.state.value
+      item: todoItems.value
     });
-    this.setState((prevState, props) => ({
-      items: newState,
+    setTodoItems((prevState, props) => ({
+      items: newTodoItems,
       value: ''
     }));
-  } // update the value of the state when input box changes
+  }; // update the value of the state when input box changes
 
 
-  handleUpdateInput(event) {
-    event.persist();
-    this.setState((prevState, props) => ({
-      value: event.target.value
+  const handleUpdateInput = () => {
+    setTodoItems((prevState, props) => ({
+      value: target.value
     }));
-  } // capture the ENTER key event
+  }; // capture the ENTER key 
 
 
-  handleEnterEvent(event) {
-    event.persist(); // if ENTER key is pressed push it to the Array
-
-    if ((event.keyCode == 13 || event.which == 13) && this.state.value != '') {
-      this.handleInsert();
+  const handleEnterEvent = () => {
+    // if ENTER key is pressed push it to the Array
+    if ((keyCode == 13 || which == 13) && todoItems.value != '') {
+      handleInsert();
     }
-  }
+  };
 
-  render() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "show-add-items",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AddItem__WEBPACK_IMPORTED_MODULE_2__.default, {
-        addItemValue: this.state.value,
-        handleUpdateInput: this.handleUpdateInput.bind(this),
-        handleEnterEvent: this.handleEnterEvent.bind(this)
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "list-items",
-        children: [this.state.items.map(ele => {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TodoItem__WEBPACK_IMPORTED_MODULE_1__.default, { ...ele,
-            handler: this.handleDelete.bind(this, ele.id)
-          }, ele.id);
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          ref: ele => {
-            this.lastItem = ele;
-          }
-        })]
-      })]
-    });
-  }
-
-}
+  console.log('todoItems as in state', todoItems);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "show-add-items",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AddItem__WEBPACK_IMPORTED_MODULE_2__.default, {
+      addItemValue: todoItems.value,
+      handleUpdateInput: handleUpdateInput,
+      handleEnterEvent: handleEnterEvent
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "list-items",
+      children: todoItems.items.map(ele => {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TodoItem__WEBPACK_IMPORTED_MODULE_1__.default, { ...ele
+        }, ele.id);
+      })
+    })]
+  });
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ItemList);
 
@@ -250,13 +232,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
+
 // TodoItem component
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (({
+const TodoItem = ({
   id,
-  item,
-  handler
+  item
 }) => {
-  // return a card like div with the item and a X button to delete it
+  console.log('props received ', 'props'); // return a card like div with the item and a X button to delete it
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: "card",
     id: id,
@@ -265,12 +248,14 @@ __webpack_require__.r(__webpack_exports__);
       children: [item, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
         href: "#",
         className: "close-icon",
-        onClick: handler,
+        onClick: () => {},
         children: "X"
       })]
     })
   });
-});
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TodoItem);
 
 /***/ }),
 
@@ -294,7 +279,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n}\n\nhtml {\n  font-size: 16px;\n  font-family: 'Roboto', sans-serif;\n}\n\n@media screen and (max-width: 400px) {\n  html {\n    font-size: 10px;\n  }\n}\n\n.container {\n  display: grid;\n  grid-template-rows: 300 1fr;\n  grid-template-columns: 1fr;\n\n  /* margin to make it look good */\n  margin: 5%;\n  -webkit-box-shadow: 6px 5px 10px -6px rgba(0, 0, 0, .4);\n  box-shadow: 6px 5px 10px -6px rgba(0, 0, 0, .4);\n  border: solid 1px #eee;\n}\n\n.title {\n  background-color: #ab14ab;\n  color: #fff;\n  padding: 1em;\n\n  grid-row: 1;\n}\n\n.description {\n  grid-row: 2;\n  padding: 1em;\n\n  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n}\n\n.italic {\n  font-style: italic;\n}\n\n.caption {\n  text-transform: uppercase;\n}\n\n.card {\n  padding: 1em;\n  position: relative;\n  border-bottom: 1px solid #eee;\n  margin-bottom: 3px;\n}\n\n.card:hover{\n  background-color: #f0f0f0;\n}\n\n.close-icon {\n  position: absolute;\n  right: 4px;\n  top: 4px;\n\n  text-decoration: none;\n  font-size: 0.7rem;\n  color: #474444;\n}\n\n.close-icon:hover,\n.close-icon:focus {\n  color: #ddd;\n}\n\n/* Input Box */\n.md-input-box {\n  border: 0;\n  outline: 0;\n  padding: 3px;\n  border-bottom: solid 0.5px #ab14ab;\n\n}\n\n.md-input-box:focus {\n  border-bottom: solid 2px #ab14ab;\n}\n\n/* Button */\n.btn {\n  font-size: 1em;\n  font-weight: 300;\n\n  padding: 0.5rem;\n\n  background-color: #ab14ab;\n  color: #eee;\n  text-decoration: none;\n}\n\n.btn:hover,\n.btn:focus {\n  color: #fff;\n}\n\n.show-add-items {\n  margin: 2%;\n  display: grid;\n  grid-template-rows: 1fr 60vh;\n  grid-template-columns: 1fr;\n}\n\n/* Add Items related */\n.add-items {\n  grid-row: 1;\n  height: 50px;\n}\n\n/* List Items related */\n.list-items {\n  grid-row: 2;\n  overflow-y: auto;\n}\n\ninput[type=text] {\n  width: 100%;\n}\n\n\n@media screen and (max-width: 400px) {\n  ::-webkit-input-placeholder {\n    /* Chrome/Opera/Safari */\n    font-size: 10px;\n  }\n\n  ::-moz-placeholder {\n    /* Firefox 19+ */\n    font-size: 10px;\n  }\n\n  :-ms-input-placeholder {\n    /* IE 10+ */\n    font-size: 10px;\n  }\n\n  :-moz-placeholder {\n    /* Firefox 18- */\n    font-size: 10px;\n  }\n\n  .md-input-box {\n    font-size: 10px;\n  }\n}\n\n/* scrollbar enhancement using css */\n::-webkit-scrollbar{\n  width: 10px;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background:#ddd; \n  border-radius: 10px;\n}", "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAEA;EACE,SAAS;EACT,UAAU;EACV,8BAA8B;EAC9B,2BAA2B;EAC3B,sBAAsB;AACxB;;AAEA;EACE,eAAe;EACf,iCAAiC;AACnC;;AAEA;EACE;IACE,eAAe;EACjB;AACF;;AAEA;EACE,aAAa;EACb,2BAA2B;EAC3B,0BAA0B;;EAE1B,gCAAgC;EAChC,UAAU;EACV,uDAAuD;EACvD,+CAA+C;EAC/C,sBAAsB;AACxB;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,YAAY;;EAEZ,WAAW;AACb;;AAEA;EACE,WAAW;EACX,YAAY;;EAEZ,iDAAiD;EACjD,yCAAyC;AAC3C;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,kBAAkB;EAClB,6BAA6B;EAC7B,kBAAkB;AACpB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,QAAQ;;EAER,qBAAqB;EACrB,iBAAiB;EACjB,cAAc;AAChB;;AAEA;;EAEE,WAAW;AACb;;AAEA,cAAc;AACd;EACE,SAAS;EACT,UAAU;EACV,YAAY;EACZ,kCAAkC;;AAEpC;;AAEA;EACE,gCAAgC;AAClC;;AAEA,WAAW;AACX;EACE,cAAc;EACd,gBAAgB;;EAEhB,eAAe;;EAEf,yBAAyB;EACzB,WAAW;EACX,qBAAqB;AACvB;;AAEA;;EAEE,WAAW;AACb;;AAEA;EACE,UAAU;EACV,aAAa;EACb,4BAA4B;EAC5B,0BAA0B;AAC5B;;AAEA,sBAAsB;AACtB;EACE,WAAW;EACX,YAAY;AACd;;AAEA,uBAAuB;AACvB;EACE,WAAW;EACX,gBAAgB;AAClB;;AAEA;EACE,WAAW;AACb;;;AAGA;EACE;IACE,wBAAwB;IACxB,eAAe;EACjB;;EAEA;IACE,gBAAgB;IAChB,eAAe;EACjB;;EAEA;IACE,WAAW;IACX,eAAe;EACjB;;EAEA;IACE,gBAAgB;IAChB,eAAe;EACjB;;EAEA;IACE,eAAe;EACjB;AACF;;AAEA,oCAAoC;AACpC;EACE,WAAW;AACb;;AAEA,WAAW;AACX;EACE,eAAe;EACf,mBAAmB;AACrB","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');\n\n* {\n  margin: 0;\n  padding: 0;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n}\n\nhtml {\n  font-size: 16px;\n  font-family: 'Roboto', sans-serif;\n}\n\n@media screen and (max-width: 400px) {\n  html {\n    font-size: 10px;\n  }\n}\n\n.container {\n  display: grid;\n  grid-template-rows: 300 1fr;\n  grid-template-columns: 1fr;\n\n  /* margin to make it look good */\n  margin: 5%;\n  -webkit-box-shadow: 6px 5px 10px -6px rgba(0, 0, 0, .4);\n  box-shadow: 6px 5px 10px -6px rgba(0, 0, 0, .4);\n  border: solid 1px #eee;\n}\n\n.title {\n  background-color: #ab14ab;\n  color: #fff;\n  padding: 1em;\n\n  grid-row: 1;\n}\n\n.description {\n  grid-row: 2;\n  padding: 1em;\n\n  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n}\n\n.italic {\n  font-style: italic;\n}\n\n.caption {\n  text-transform: uppercase;\n}\n\n.card {\n  padding: 1em;\n  position: relative;\n  border-bottom: 1px solid #eee;\n  margin-bottom: 3px;\n}\n\n.card:hover{\n  background-color: #f0f0f0;\n}\n\n.close-icon {\n  position: absolute;\n  right: 4px;\n  top: 4px;\n\n  text-decoration: none;\n  font-size: 0.7rem;\n  color: #474444;\n}\n\n.close-icon:hover,\n.close-icon:focus {\n  color: #ddd;\n}\n\n/* Input Box */\n.md-input-box {\n  border: 0;\n  outline: 0;\n  padding: 3px;\n  border-bottom: solid 0.5px #ab14ab;\n\n}\n\n.md-input-box:focus {\n  border-bottom: solid 2px #ab14ab;\n}\n\n/* Button */\n.btn {\n  font-size: 1em;\n  font-weight: 300;\n\n  padding: 0.5rem;\n\n  background-color: #ab14ab;\n  color: #eee;\n  text-decoration: none;\n}\n\n.btn:hover,\n.btn:focus {\n  color: #fff;\n}\n\n.show-add-items {\n  margin: 2%;\n  display: grid;\n  grid-template-rows: 1fr 60vh;\n  grid-template-columns: 1fr;\n}\n\n/* Add Items related */\n.add-items {\n  grid-row: 1;\n  height: 50px;\n}\n\n/* List Items related */\n.list-items {\n  grid-row: 2;\n  overflow-y: auto;\n}\n\ninput[type=text] {\n  width: 100%;\n}\n\n\n@media screen and (max-width: 400px) {\n  ::-webkit-input-placeholder {\n    /* Chrome/Opera/Safari */\n    font-size: 10px;\n  }\n\n  ::-moz-placeholder {\n    /* Firefox 19+ */\n    font-size: 10px;\n  }\n\n  :-ms-input-placeholder {\n    /* IE 10+ */\n    font-size: 10px;\n  }\n\n  :-moz-placeholder {\n    /* Firefox 18- */\n    font-size: 10px;\n  }\n\n  .md-input-box {\n    font-size: 10px;\n  }\n}\n\n/* scrollbar enhancement using css */\n::-webkit-scrollbar{\n  width: 10px;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background:#ddd; \n  border-radius: 10px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n}\n\nhtml {\n  font-size: 16px;\n  font-family: 'Roboto', sans-serif;\n}\n\n@media screen and (max-width: 400px) {\n  html {\n    font-size: 10px;\n  }\n}\n\n.container {\n  display: grid;\n  grid-template-rows: 300 1fr;\n  grid-template-columns: 1fr;\n\n  /* margin to make it look good */\n  margin: 5% auto;\n  width: 50vw;\n  -webkit-box-shadow: 6px 5px 10px -6px rgba(0, 0, 0, .4);\n  box-shadow: 6px 5px 10px -6px rgba(0, 0, 0, .4);\n  border: solid 1px #eee;\n}\n\n.title {\n  background-color: #ab14ab;\n  color: #fff;\n  padding: 1em;\n\n  grid-row: 1;\n}\n\n.description {\n  grid-row: 2;\n  padding: 1em;\n\n  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n}\n\n.italic {\n  font-style: italic;\n}\n\n.caption {\n  text-transform: uppercase;\n}\n\n.card {\n  padding: 1em;\n  position: relative;\n  border-bottom: 1px solid #eee;\n  margin-bottom: 3px;\n}\n\n.card:hover{\n  background-color: #f0f0f0;\n}\n\n.close-icon {\n  position: absolute;\n  right: 4px;\n  top: 4px;\n\n  text-decoration: none;\n  font-size: 0.7rem;\n  color: #474444;\n}\n\n.close-icon:hover,\n.close-icon:focus {\n  color: #ddd;\n}\n\n/* Input Box */\n.md-input-box {\n  border: 0;\n  outline: 0;\n  padding: 3px;\n  border-bottom: solid 0.5px #ab14ab;\n\n}\n\n.md-input-box:focus {\n  border-bottom: solid 2px #ab14ab;\n}\n\n/* Button */\n.btn {\n  font-size: 1em;\n  font-weight: 300;\n\n  padding: 0.5rem;\n\n  background-color: #ab14ab;\n  color: #eee;\n  text-decoration: none;\n}\n\n.btn:hover,\n.btn:focus {\n  color: #fff;\n}\n\n.show-add-items {\n  margin: 2%;\n  display: grid;\n  grid-template-rows: 1fr 60vh;\n  grid-template-columns: 1fr;\n}\n\n/* Add Items related */\n.add-items {\n  grid-row: 1;\n  height: 50px;\n}\n\n/* List Items related */\n.list-items {\n  grid-row: 2;\n  overflow-y: auto;\n}\n\ninput[type=text] {\n  width: 100%;\n}\n\n\n@media screen and (max-width: 400px) {\n  ::-webkit-input-placeholder {\n    /* Chrome/Opera/Safari */\n    font-size: 10px;\n  }\n\n  ::-moz-placeholder {\n    /* Firefox 19+ */\n    font-size: 10px;\n  }\n\n  :-ms-input-placeholder {\n    /* IE 10+ */\n    font-size: 10px;\n  }\n\n  :-moz-placeholder {\n    /* Firefox 18- */\n    font-size: 10px;\n  }\n\n  .md-input-box {\n    font-size: 10px;\n  }\n}\n\n/* scrollbar enhancement using css */\n::-webkit-scrollbar{\n  width: 10px;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background:#ddd; \n  border-radius: 10px;\n}", "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAEA;EACE,SAAS;EACT,UAAU;EACV,8BAA8B;EAC9B,2BAA2B;EAC3B,sBAAsB;AACxB;;AAEA;EACE,eAAe;EACf,iCAAiC;AACnC;;AAEA;EACE;IACE,eAAe;EACjB;AACF;;AAEA;EACE,aAAa;EACb,2BAA2B;EAC3B,0BAA0B;;EAE1B,gCAAgC;EAChC,eAAe;EACf,WAAW;EACX,uDAAuD;EACvD,+CAA+C;EAC/C,sBAAsB;AACxB;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,YAAY;;EAEZ,WAAW;AACb;;AAEA;EACE,WAAW;EACX,YAAY;;EAEZ,iDAAiD;EACjD,yCAAyC;AAC3C;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,kBAAkB;EAClB,6BAA6B;EAC7B,kBAAkB;AACpB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,QAAQ;;EAER,qBAAqB;EACrB,iBAAiB;EACjB,cAAc;AAChB;;AAEA;;EAEE,WAAW;AACb;;AAEA,cAAc;AACd;EACE,SAAS;EACT,UAAU;EACV,YAAY;EACZ,kCAAkC;;AAEpC;;AAEA;EACE,gCAAgC;AAClC;;AAEA,WAAW;AACX;EACE,cAAc;EACd,gBAAgB;;EAEhB,eAAe;;EAEf,yBAAyB;EACzB,WAAW;EACX,qBAAqB;AACvB;;AAEA;;EAEE,WAAW;AACb;;AAEA;EACE,UAAU;EACV,aAAa;EACb,4BAA4B;EAC5B,0BAA0B;AAC5B;;AAEA,sBAAsB;AACtB;EACE,WAAW;EACX,YAAY;AACd;;AAEA,uBAAuB;AACvB;EACE,WAAW;EACX,gBAAgB;AAClB;;AAEA;EACE,WAAW;AACb;;;AAGA;EACE;IACE,wBAAwB;IACxB,eAAe;EACjB;;EAEA;IACE,gBAAgB;IAChB,eAAe;EACjB;;EAEA;IACE,WAAW;IACX,eAAe;EACjB;;EAEA;IACE,gBAAgB;IAChB,eAAe;EACjB;;EAEA;IACE,eAAe;EACjB;AACF;;AAEA,oCAAoC;AACpC;EACE,WAAW;AACb;;AAEA,WAAW;AACX;EACE,eAAe;EACf,mBAAmB;AACrB","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');\n\n* {\n  margin: 0;\n  padding: 0;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n}\n\nhtml {\n  font-size: 16px;\n  font-family: 'Roboto', sans-serif;\n}\n\n@media screen and (max-width: 400px) {\n  html {\n    font-size: 10px;\n  }\n}\n\n.container {\n  display: grid;\n  grid-template-rows: 300 1fr;\n  grid-template-columns: 1fr;\n\n  /* margin to make it look good */\n  margin: 5% auto;\n  width: 50vw;\n  -webkit-box-shadow: 6px 5px 10px -6px rgba(0, 0, 0, .4);\n  box-shadow: 6px 5px 10px -6px rgba(0, 0, 0, .4);\n  border: solid 1px #eee;\n}\n\n.title {\n  background-color: #ab14ab;\n  color: #fff;\n  padding: 1em;\n\n  grid-row: 1;\n}\n\n.description {\n  grid-row: 2;\n  padding: 1em;\n\n  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n}\n\n.italic {\n  font-style: italic;\n}\n\n.caption {\n  text-transform: uppercase;\n}\n\n.card {\n  padding: 1em;\n  position: relative;\n  border-bottom: 1px solid #eee;\n  margin-bottom: 3px;\n}\n\n.card:hover{\n  background-color: #f0f0f0;\n}\n\n.close-icon {\n  position: absolute;\n  right: 4px;\n  top: 4px;\n\n  text-decoration: none;\n  font-size: 0.7rem;\n  color: #474444;\n}\n\n.close-icon:hover,\n.close-icon:focus {\n  color: #ddd;\n}\n\n/* Input Box */\n.md-input-box {\n  border: 0;\n  outline: 0;\n  padding: 3px;\n  border-bottom: solid 0.5px #ab14ab;\n\n}\n\n.md-input-box:focus {\n  border-bottom: solid 2px #ab14ab;\n}\n\n/* Button */\n.btn {\n  font-size: 1em;\n  font-weight: 300;\n\n  padding: 0.5rem;\n\n  background-color: #ab14ab;\n  color: #eee;\n  text-decoration: none;\n}\n\n.btn:hover,\n.btn:focus {\n  color: #fff;\n}\n\n.show-add-items {\n  margin: 2%;\n  display: grid;\n  grid-template-rows: 1fr 60vh;\n  grid-template-columns: 1fr;\n}\n\n/* Add Items related */\n.add-items {\n  grid-row: 1;\n  height: 50px;\n}\n\n/* List Items related */\n.list-items {\n  grid-row: 2;\n  overflow-y: auto;\n}\n\ninput[type=text] {\n  width: 100%;\n}\n\n\n@media screen and (max-width: 400px) {\n  ::-webkit-input-placeholder {\n    /* Chrome/Opera/Safari */\n    font-size: 10px;\n  }\n\n  ::-moz-placeholder {\n    /* Firefox 19+ */\n    font-size: 10px;\n  }\n\n  :-ms-input-placeholder {\n    /* IE 10+ */\n    font-size: 10px;\n  }\n\n  :-moz-placeholder {\n    /* Firefox 18- */\n    font-size: 10px;\n  }\n\n  .md-input-box {\n    font-size: 10px;\n  }\n}\n\n/* scrollbar enhancement using css */\n::-webkit-scrollbar{\n  width: 10px;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background:#ddd; \n  border-radius: 10px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
