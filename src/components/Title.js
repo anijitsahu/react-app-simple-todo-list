@@ -1,13 +1,10 @@
-import React from 'react';
+// Title component
 
-const Title = () => {
+export default () => {
   return (
     <div className="title">
-	    <span className="caption">Todo <strong>List</strong>
-	    </span>
+      <span className="caption">Todo <strong>List</strong>
+      </span>
     </div>
   );
 };
-
-
-export default Title;

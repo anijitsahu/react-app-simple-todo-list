@@ -25,7 +25,8 @@ html {
   grid-template-columns: 1fr;
 
   /* margin to make it look good */
-  margin: 5%;
+  margin: 5% auto;
+  width: 50vw;
   -webkit-box-shadow: 6px 5px 10px -6px rgba(0, 0, 0, .4);
   box-shadow: 6px 5px 10px -6px rgba(0, 0, 0, .4);
   border: solid 1px #eee;
