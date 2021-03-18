@@ -6,7 +6,6 @@ const AddItem = ({ addItemValue, handleUpdateInput, handleEnterEvent }) => {
 				onKeyPress={handleEnterEvent}
 				onChange={handleUpdateInput}
 				value={addItemValue} />
-
 		</div>
 	);
 };

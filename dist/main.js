@@ -116,73 +116,63 @@ const ItemList = () => {
     value: ''
   }; // setting the initial list of TODO items
 
-  const [todoItems, setTodoItems] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(todoItemList); // useEffect(() => {
-  //   // scrollToBottom()
-  // })
-  // always scroll to the bottom
+  const [todoItems, setTodoItems] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(todoItemList);
+  const lastElement = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    scrollToBottom();
+  }); // always scroll to the bottom
 
   const scrollToBottom = () => {
-    // lastItem.scrollIntoView({ behavior: "smooth" })
-    console.log('reached');
-  }; // delete the item from the list of items
+    lastElement.current.focus(); // lastItem.current.scrollIntoView({ behavior: "smooth" })
+  }; // find and delete the item whose X button is clicked
 
 
   const handleDelete = id => {
-    let newTodoItems = [...todoItems.items]; // find and delete the item whose X button is clicked
-
-    for (let i = 0; i < newTodoItems.length; i++) {
-      if (newTodoItems[i].id == id) {
-        newTodoItems.splice(i, 1);
-        break;
-      }
-    }
-
-    setTodoItems((prevState, props) => ({
-      items: newTodoItems
-    }));
-  }; // insert an item into the list
+    setTodoItems({ ...todoItems,
+      items: todoItems.items.filter(item => item.id != id)
+    });
+  }; // insert an item into the list and reset the input field
 
 
   const handleInsert = () => {
-    let newTodoItems = [...todoItems.items];
-    newTodoItems.push({
-      id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
-      item: todoItems.value
-    });
-    setTodoItems((prevState, props) => ({
-      items: newTodoItems,
+    setTodoItems({
+      items: [...todoItems.items, {
+        id: (0,uuid__WEBPACK_IMPORTED_MODULE_4__.default)(),
+        item: todoItems.value
+      }],
       value: ''
-    }));
+    });
   }; // update the value of the state when input box changes
 
 
-  const handleUpdateInput = () => {
-    setTodoItems((prevState, props) => ({
-      value: target.value
-    }));
+  const handleUpdateInput = e => {
+    setTodoItems({ ...todoItems,
+      value: e.target.value
+    });
   }; // capture the ENTER key 
 
 
-  const handleEnterEvent = () => {
-    // if ENTER key is pressed push it to the Array
-    if ((keyCode == 13 || which == 13) && todoItems.value != '') {
+  const handleEnterEvent = e => {
+    if ((e.keyCode == 13 || e.which == 13) && todoItems.value != '') {
       handleInsert();
     }
   };
 
-  console.log('todoItems as in state', todoItems);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "show-add-items",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AddItem__WEBPACK_IMPORTED_MODULE_2__.default, {
       addItemValue: todoItems.value,
       handleUpdateInput: handleUpdateInput,
       handleEnterEvent: handleEnterEvent
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "list-items",
-      children: todoItems.items.map(ele => {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TodoItem__WEBPACK_IMPORTED_MODULE_1__.default, { ...ele
+      children: [todoItems.items.map(ele => {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TodoItem__WEBPACK_IMPORTED_MODULE_1__.default, { ...ele,
+          handleDelete: handleDelete
         }, ele.id);
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        ref: lastElement
+      })]
     })]
   });
 };
@@ -236,10 +226,10 @@ __webpack_require__.r(__webpack_exports__);
 // TodoItem component
 const TodoItem = ({
   id,
-  item
+  item,
+  handleDelete
 }) => {
-  console.log('props received ', 'props'); // return a card like div with the item and a X button to delete it
-
+  // return a card like div with the item and a X button to delete it
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: "card",
     id: id,
@@ -248,7 +238,9 @@ const TodoItem = ({
       children: [item, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
         href: "#",
         className: "close-icon",
-        onClick: () => {},
+        onClick: () => {
+          handleDelete(id);
+        },
         children: "X"
       })]
     })

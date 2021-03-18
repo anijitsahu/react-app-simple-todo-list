@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
 // components
@@ -34,55 +34,36 @@ const ItemList = () => {
 
   // setting the initial list of TODO items
   const [todoItems, setTodoItems] = useState(todoItemList)
-  // useEffect(() => {
-  //   // scrollToBottom()
-  // })
+  const lastElement = useRef(null)
+
+  useEffect(() => {
+    scrollToBottom()
+  })
 
   // always scroll to the bottom
   const scrollToBottom = () => {
-    // lastItem.scrollIntoView({ behavior: "smooth" })
-    console.log('reached')
+    lastElement.current.focus()
+    // lastItem.current.scrollIntoView({ behavior: "smooth" })
   }
 
-  // delete the item from the list of items
+  // find and delete the item whose X button is clicked
   const handleDelete = (id) => {
-    let newTodoItems = [...todoItems.items]
-
-    // find and delete the item whose X button is clicked
-    for (let i = 0; i < newTodoItems.length; i++) {
-      if (newTodoItems[i].id == id) {
-        newTodoItems.splice(i, 1)
-        break;
-      }
-    }
-
-    setTodoItems((prevState, props) => ({
-      items: newTodoItems
-    }))
+    setTodoItems({ ...todoItems, items: todoItems.items.filter(item => item.id != id) })
   }
 
-  // insert an item into the list
+  // insert an item into the list and reset the input field
   const handleInsert = () => {
-    let newTodoItems = [...todoItems.items]
-    newTodoItems.push({ id: uuidv4(), item: todoItems.value })
-
-    setTodoItems((prevState, props) => ({
-      items: newTodoItems,
-      value: ''
-    }))
+    setTodoItems({ items: [...todoItems.items, { id: uuidv4(), item: todoItems.value }], value: '' })
   }
 
   // update the value of the state when input box changes
-  const handleUpdateInput = () => {
-    setTodoItems((prevState, props) => ({
-      value: target.value
-    }))
+  const handleUpdateInput = (e) => {
+    setTodoItems({ ...todoItems, value: e.target.value })
   }
 
   // capture the ENTER key 
-  const handleEnterEvent = () => {
-    // if ENTER key is pressed push it to the Array
-    if ((keyCode == 13 || which == 13) && todoItems.value != '') {
+  const handleEnterEvent = (e) => {
+    if ((e.keyCode == 13 || e.which == 13) && todoItems.value != '') {
       handleInsert()
     }
   }
@@ -95,10 +76,10 @@ const ItemList = () => {
       <div className="list-items">
         {
           todoItems.items.map((ele) => {
-            return <TodoItem key={ele.id} {...ele} />
+            return <TodoItem key={ele.id} {...ele} handleDelete={handleDelete} />
           })
         }
-        {/* <div ref={(ele) => { lastItem = ele; }}></div> */}
+        <div ref={lastElement}></div>
       </div>
     </div>
   );
