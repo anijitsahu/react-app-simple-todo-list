@@ -3,7 +3,7 @@
 A simple as well as basic Todo List Application using [React JS](https://reactjs.org/docs/getting-started.html), a JavaScript library to make awesome UI by Facebook. 
 
 This application uses [React JS](https://reactjs.org/docs/getting-started.html) component oriented UI creation paradigm. All components are written in [JSX](https://reactjs.org/docs/jsx-in-depth.html) and ES6 style and are
-combined using [Webpack 4](https://webpack.js.org/concepts/). 
+combined using [Webpack 5](https://webpack.js.org/concepts/). 
 
 [Babel](https://babeljs.io/docs/en/babel-preset-react) is used to *transpile* all [JSX](https://reactjs.org/docs/jsx-in-depth.html) code to vanilla JavaScript code. States and Props are used to pass data within components. To install all the dependecies `npm` is used.
 
@@ -13,6 +13,7 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 
 ## Features
+- Code is re written using [React 15](https://reactjs.org/docs/getting-started.html) 
 - The app is loaded with some predefined todo items.
 - Type an item in the input box and press `ENTER` key to add it in the todo list
 - Deletion of an item is done by clicking the `X` icon

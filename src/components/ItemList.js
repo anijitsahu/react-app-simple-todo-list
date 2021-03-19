@@ -42,8 +42,8 @@ const ItemList = () => {
 
   // always scroll to the bottom
   const scrollToBottom = () => {
-    lastElement.current.focus()
-    // lastItem.current.scrollIntoView({ behavior: "smooth" })
+    // lastElement.current.scrollTop = lastElement.current.scrollHeight - lastElement.current.clientHeight
+    lastElement.current.scrollIntoView({ block: 'end', behavior: 'smooth' });
   }
 
   // find and delete the item whose X button is clicked

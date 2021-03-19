@@ -5,7 +5,7 @@ const TodoItem = ({ id, item, handleDelete }) => {
   return (
     <div className="card" id={id}>
       <div className="heading">{item}
-        <a href="#" className="close-icon" onClick={() => { handleDelete(id) }}>X</a>
+        <i className="fa fa-times close-icon" onClick={() => { handleDelete(id) }} />
       </div>
     </div>
   );
