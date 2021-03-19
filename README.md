@@ -20,8 +20,8 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
  </ul>
  
 <ul>
- <li> Type an item in the input box and press `ENTER` key to add it in the todo list</li>
- <li> Deletion of an item is done by clicking the `X` icon </li> 
+ <li> Type an item in the input box and press <code> ENTER </code> key to add it in the todo list</li>
+ <li> Deletion of an item is done by clicking the <code> X </code> icon </li> 
  <li> As the application is not backed by any database / storage all the items created or deleted is <i>not persistant</i> </li>
 </ul>
 
