@@ -20,8 +20,8 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
  </ul>
  
 <ul>
- <li> Type an item in the input box and press <code> ENTER </code> key to add it in the todo list</li>
- <li> Deletion of an item is done by clicking the <code> X </code> icon </li> 
+ <li> Type an item in the input box and press <code>ENTER</code> key to add it in the todo list</li>
+ <li> Deletion of an item is done by clicking the <code>X</code> icon </li> 
  <li> As the application is not backed by any database / storage all the items created or deleted is <i>not persistant</i> </li>
 </ul>
 
@@ -38,7 +38,7 @@ Navigate inside the directory:
  ```
 Open `index.html` page in a web browser and create / delete your To do items
  
-*tested with <img src="screenshots/chrome.png" width="20px" title="Google Chrome">[Google Chrome v89](https://www.google.com/chrome/) and <img src="screenshots/firefox.png" width="25px" title="Firefox Developer edition">[Mozilla Firefox 86](https://www.mozilla.org/en-US/firefox/new/)*  
+*tested with <img src="screenshots/chrome.png" width="20px" title="Google Chrome">[Google Chrome 89](https://www.google.com/chrome/) and <img src="screenshots/firefox.png" width="25px" title="Firefox Developer edition">[Mozilla Firefox 86](https://www.mozilla.org/en-US/firefox/new/)*  
 
 ## Screenshots
 
