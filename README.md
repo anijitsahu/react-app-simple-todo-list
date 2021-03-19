@@ -7,20 +7,23 @@ combined using [Webpack 5](https://webpack.js.org/concepts/).
 
 [Babel](https://babeljs.io/docs/en/babel-preset-react) is used to *transpile* all [JSX](https://reactjs.org/docs/jsx-in-depth.html) code to vanilla JavaScript code. States and Props are used to pass data within components. To install all the dependecies `npm` is used.
 
-For UI creation [HTML5](https://www.w3schools.com/html/html5_intro.asp) and [CSS3](https://www.w3schools.com/css/) are used. [Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout), the new feature of [CSS3](https://www.w3schools.com/css/) is used for layout creation purpose.
+For UI creation [HTML5](https://www.w3schools.com/html/html5_intro.asp) and [CSS3](https://www.w3schools.com/css/) are used. [Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout), the new feature of [CSS3](https://www.w3schools.com/css/) is used for layout creation purpose. For the icons to beautify the application [Font Awesome](https://fontawesome.com/) is added. 
 
 This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 
 ## Features
 - Code is re written using [React 17](https://reactjs.org/docs/getting-started.html) 
-- The app is loaded with some predefined todo items.
-- Latest features of Javascript i.e. ES6, ES7, ES8 is used
-
-- Type an item in the input box and press `ENTER` key to add it in the todo list
-- Deletion of an item is done by clicking the `X` icon
-- As the application is not backed by any database / storage all the items created or deleted is *not persistant*
-
+ <ul>
+  <li> The app is loaded with some predefined todo items. </li>
+  <li> Latest features of Javascript i.e. ES6, ES7, ES8 is used </li>
+ </ul>
+ 
+<ul>
+ <li> Type an item in the input box and press `ENTER` key to add it in the todo list</li>
+ <li> Deletion of an item is done by clicking the `X` icon </li> 
+ <li> As the application is not backed by any database / storage all the items created or deleted is <i>not persistant</i> </li>
+</ul>
 
 
 ## Installation
@@ -67,5 +70,3 @@ Desktop as well as Mobile version of the screenshots are given side by side
  <img src="screenshots/desktop 5.png" width="590px" title="after deletion screen"/> 
  <img src="screenshots/mobile 5.png" width="230px" title="after deletion screen"/>
  </p>
-
-
