@@ -15,6 +15,8 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 ## Features
 - Code is re written using [React 17](https://reactjs.org/docs/getting-started.html) 
 - The app is loaded with some predefined todo items.
+- Latest features of Javascript i.e. ES6, ES7, ES8 is used
+
 - Type an item in the input box and press `ENTER` key to add it in the todo list
 - Deletion of an item is done by clicking the `X` icon
 - As the application is not backed by any database / storage all the items created or deleted is *not persistant*
