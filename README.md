@@ -13,7 +13,7 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 
 ## Features
-- Code is re written using [React 15](https://reactjs.org/docs/getting-started.html) 
+- Code is re written using [React 17](https://reactjs.org/docs/getting-started.html) 
 - The app is loaded with some predefined todo items.
 - Type an item in the input box and press `ENTER` key to add it in the todo list
 - Deletion of an item is done by clicking the `X` icon
@@ -33,7 +33,7 @@ Navigate inside the directory:
  ```
 Open `index.html` page in a web browser and create / delete your To do items
  
-*tested with <img src="screenshots/chrome.png" width="20px" title="Google Chrome">Google Chrome v89 and <img src="screenshots/firefox.png" width="25px" title="Firefox Developer edition">Mozilla Firefox 86*  
+*tested with <img src="screenshots/chrome.png" width="20px" title="Google Chrome">[Google Chrome v89](https://www.google.com/chrome/) and <img src="screenshots/firefox.png" width="25px" title="Firefox Developer edition">[Mozilla Firefox 86](https://www.mozilla.org/en-US/firefox/new/)*  
 
 ## Screenshots
 
